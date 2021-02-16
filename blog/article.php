@@ -1,23 +1,14 @@
 <?php 
+include_once 'post.php';
+
 /** Article 
  * 
 */
-class Article
+class Article extends Post
 {
-    public $title;
-    public $content;
-    public $author;
-    public $date;
-    public $views;
-    public $tag;
-    public function __construct(string $title, string $content, string $author, string $tag)
-    {
+    public $title;    
+    public function __construct(string $title, string $content, string $author, string $tag){
+        parent:: __construct($content, $author, $tag);
         $this->title = $title;
-        $this->content = $content;
-        $this->author = $author;
-        $this->tag = $tag;
-    }
-    public function setdate(){
-        return $this->date = date('d/m/Y');
     }
 }

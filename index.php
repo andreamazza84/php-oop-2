@@ -11,11 +11,22 @@
 // Cercate di pensare anche ad una classe che possa avere una sub-class e fate pratica con l'extends.
 
 include 'blog/user.php';
+include 'blog/post.php';
 include 'blog/article.php';
+include 'blog/category.php';
+include 'blog/comment.php';
 
+$users =[
+    new User("Pippo", "Depippis", "pippo@bello.com", 34, "Erpippo86", "xxx", 'moderatore'),
+    new User('Guido', 'La Barca', "drivingboat@sail.com", 43, 'guidu77', 'yyy'),
+    new User('Massimo', 'Impegno', 'maxeffort80@max.com', 41, 'madmax', 'xyz', 'admin')
+];
+foreach ($users as $user) {
+    var_dump($user);
+}
 
-$pippo = new User("Pippo", "Depippis", "pippo@bello.com", 34, "Erpippo86", "xxx");
-var_dump($pippo);
+$post = new Post("Content", "Author", "tag");
+var_dump($post);
 
 $articles = [
     new Article("La banana è il vero frutto dell'amore?", "Forse sì, gli esperti si dividono...", "Erpippo86", "Sessuologia"),
@@ -23,8 +34,29 @@ $articles = [
     new Article("Gare di impennate", "Il team Spread batte tutti...", "Erpippo86", "Finanza"),
     new Article("Il tuo alfabeto conta 20 lettere?", "Potresti avere l'erre moscia...c'hai mai pensato?", "Erpippo86", "Parola dell'esperto"),
     new Article("Sigaretta dopo il sesso", "Esplode allevamento di mucche nel lucchese", "Erpippo86", "Cronaca"),
-
 ];
 foreach ($articles as $article) {
     var_dump($article);
+}
+
+$categories = [
+    new Category("Fashion"),
+    new Category("Sport"),
+    new Category("Food"),
+    new Category("Economics"),
+    new Category("Health"),
+    new Category("Experts' opinion")
+];
+
+foreach ($categories as $category) {
+    var_dump($category);
+}
+
+$comments = [
+    new Comment("Non mi piace...", "Aurelio76"),
+    new Comment("Mi piace...", "Aurelio76")
+];
+
+foreach ($comments as $comment) {
+    var_dump($comment);
 }
